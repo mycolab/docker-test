@@ -1,17 +1,26 @@
-name: Version
-
+name: Release
 on:
   push:
-    branches: ["main"]
+    branches: [ main ]
 
 jobs:
-  semantic-release:
-      runs-on: ubuntu-18.04
+  release:
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Source checkout
-      uses: actions/checkout@v1
-    - name: Create Version
-      uses: caos/semantic-release@v1.0.0
-    - name: Check if Version Tag is available
-      if: env.CAOS_NEXT_VERSION == ''
-      run: exit 1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
+        with:
+          semantic_version: 16
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+            conventional-changelog-eslint
+          branches: |
+            ['main']
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
