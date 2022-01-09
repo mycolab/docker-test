@@ -1,6 +1,0 @@
-{
-  "name": "docker-test",
-  "release": {
-    "branches": ["main"]
-  }
-}

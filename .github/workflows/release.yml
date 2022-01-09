@@ -5,20 +5,13 @@ on:
     branches: ["main"]
 
 jobs:
-  version:
-    runs-on: ubuntu-latest
-
+  semantic-release:
+      runs-on: ubuntu-18.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
-        id: semantic
-        with:
-          extra_plugins: |
-            @semantic-release/git
-            @semantic-release/changelog
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Source checkout
+      uses: actions/checkout@v1
+    - name: Create Version
+      uses: caos/semantic-release@v1.0.0
+    - name: Check if Version Tag is available
+      if: env.CAOS_NEXT_VERSION == ''
+      run: exit 1
