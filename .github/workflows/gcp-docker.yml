@@ -10,7 +10,7 @@ jobs:
     name: Build and Push to GCP
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: docker-test
+      IMAGE_NAME: ${{ github.event.repository.name }}
       PROJECT_ID: micro-shoreline-333018
 
     steps:
