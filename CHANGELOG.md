@@ -1,3 +1,12 @@
+## [0.1.7](https://github.com/mycolab/docker-test/compare/v0.1.6...v0.1.7) (2022-01-09)
+
+
+### Bug Fixes
+
+* **pipe:** rm secrets ([6c6c65c](https://github.com/mycolab/docker-test/commit/6c6c65cce59291d61af62939da0a1f9f66e317e0))
+
+
+
 ## [0.1.6](https://github.com/mycolab/docker-test/compare/v0.1.5...v0.1.6) (2022-01-09)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **pipe:** dynamically generated image name ([65d105e](https://github.com/mycolab/docker-test/commit/65d105ec713ab55fc346689baf8befed3dd91b63))
-
-
-
-## [0.1.2](https://github.com/mycolab/docker-test/compare/v0.1.1...v0.1.2) (2022-01-09)
-
-
-### Bug Fixes
-
-* **test:** another test ([9b10e62](https://github.com/mycolab/docker-test/commit/9b10e6235d5f0b783e13874fe704bdb94158ccda))
 
 
 
