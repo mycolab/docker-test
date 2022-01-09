@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/mycolab/docker-test/compare/v0.1.3...v0.1.4) (2022-01-09)
+
+
+### Bug Fixes
+
+* **pipe:** removed temporary service accounts ([a3a979c](https://github.com/mycolab/docker-test/commit/a3a979c508daa43ba1487347fa297dd15f468aba))
+
+
+
 ## [0.1.3](https://github.com/mycolab/docker-test/compare/v0.1.2...v0.1.3) (2022-01-09)
 
 
