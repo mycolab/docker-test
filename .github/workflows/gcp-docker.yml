@@ -1,9 +1,9 @@
 ---
 name: Build and Push Python Image to Google Cloud Platform
+
 on:
   push:
-    tags:
-      - v*
+    branches: [ main ]
 
 jobs:
   build-push-gcr:
@@ -25,17 +25,31 @@ jobs:
     - name: Build Docker Image
       run: docker build -t $IMAGE_NAME:latest .
 
-    - name: Get tag
-      id: get_tag
-      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+    - name: conventional Changelog Action
+      id: changelog
+      uses: TriPSs/conventional-changelog-action@v3.7.1
+      with:
+        github-token: ${{ secrets.CHANGELOG_RELEASE }}
+        tag-prefix: 'v'
+
+    - name: create release
+      uses: actions/create-release@v1
+      if: ${{ steps.changelog.outputs.skipped == 'false' }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      with:
+        tag_name: ${{ steps.changelog.outputs.tag }}
+        release_name: ${{ steps.changelog.outputs.tag }}
+        body: ${{ steps.changelog.outputs.clean_changelog }}
 
     - name: Configure Docker Client
       run: |-
         gcloud auth configure-docker --quiet
         gcloud auth configure-docker us-west2-docker.pkg.dev
+
     - name: Push Docker Image to Artifact Registry
       env:
-        GIT_TAG: ${{ steps.get_tag.outputs.VERSION }}
+        GIT_TAG: ${{ steps.changelog.outputs.tag }}
       run: |-
         docker tag $IMAGE_NAME:latest us-west2-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
         docker tag $IMAGE_NAME:latest us-west2-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
