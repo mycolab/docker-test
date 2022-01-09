@@ -1,3 +1,12 @@
+## [0.1.8](https://github.com/mycolab/docker-test/compare/v0.1.7...v0.1.8) (2022-01-09)
+
+
+### Bug Fixes
+
+* **ci:** improved used of secrets ([be5b2f3](https://github.com/mycolab/docker-test/commit/be5b2f3f5caf031c2e225bf52c492eec4687095e))
+
+
+
 ## [0.1.7](https://github.com/mycolab/docker-test/compare/v0.1.6...v0.1.7) (2022-01-09)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **pipe:** removed temporary service accounts ([a3a979c](https://github.com/mycolab/docker-test/commit/a3a979c508daa43ba1487347fa297dd15f468aba))
-
-
-
-## [0.1.3](https://github.com/mycolab/docker-test/compare/v0.1.2...v0.1.3) (2022-01-09)
-
-
-### Bug Fixes
-
-* **pipe:** dynamically generated image name ([65d105e](https://github.com/mycolab/docker-test/commit/65d105ec713ab55fc346689baf8befed3dd91b63))
 
 
 
