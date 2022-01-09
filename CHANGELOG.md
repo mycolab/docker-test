@@ -1,4 +1,13 @@
-## 0.1.1 (2022-01-09)
+## [0.1.2](https://github.com/mycolab/docker-test/compare/v0.1.1...v0.1.2) (2022-01-09)
+
+
+### Bug Fixes
+
+* **test:** another test ([9b10e62](https://github.com/mycolab/docker-test/commit/9b10e6235d5f0b783e13874fe704bdb94158ccda))
+
+
+
+## [0.1.1](https://github.com/mycolab/docker-test/compare/d0eda7ad58cb3e05afde27dcf5b94db927dfd978...v0.1.1) (2022-01-09)
 
 
 ### Bug Fixes
