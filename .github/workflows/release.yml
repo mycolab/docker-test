@@ -13,7 +13,7 @@ jobs:
 
       - name: Semantic Release
         run: |
-          npm install --save-dev semantic-release
+          npm install semantic-release
           npx semantic-release
           semantic-release publish -D commit_author="github-actions <action@github.com>"
         env:
