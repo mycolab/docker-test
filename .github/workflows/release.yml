@@ -5,6 +5,7 @@ on:
 
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +16,7 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3.7.1
         with:
-          github-token: ${{ secrets.CHANGELOG_RELEASE }}
+          github-token: ${{ secrets.GH_TOKEN }}
           tag-prefix: 'v'
 
       - name: create release
