@@ -1,8 +1,9 @@
-# [0.1.0](https://github.com/mycolab/docker-test/compare/v1.1.0...v0.1.0) (2022-01-09)
+## 0.1.1 (2022-01-09)
 
 
 ### Bug Fixes
 
+* **pipelin:** sem-ver ([5ad95bf](https://github.com/mycolab/docker-test/commit/5ad95bf8ef98514e8c82460c273946b8b9b060e6))
 * **pipelin:** sem-ver ([52fe9ea](https://github.com/mycolab/docker-test/commit/52fe9ea80664fc7076521ee16ee15be9084b7392))
 * **pipelin:** sem-ver ([ceb53a3](https://github.com/mycolab/docker-test/commit/ceb53a30ac4b483c82ee89ba57947e7c3c88ce9b))
 * **pipelin:** sem-ver ([e5d89ee](https://github.com/mycolab/docker-test/commit/e5d89eee8f259eb97d5155e4b74c763a60a9374a))
@@ -22,10 +23,10 @@
 * **pipeline:** automate increment of tag ([2469e05](https://github.com/mycolab/docker-test/commit/2469e057c7bbe5c73d725c356657af29c4394058))
 * **pipeline:** automate increment of tag ([a3dcfbb](https://github.com/mycolab/docker-test/commit/a3dcfbbb0a141d757ecd7e29882374462963b38f))
 * **pipeline:** automate increment of tag ([d0eda7a](https://github.com/mycolab/docker-test/commit/d0eda7ad58cb3e05afde27dcf5b94db927dfd978))
-
-
-
-# 1.1.0 (2022-01-09)
+* **test:** test ([5aca87f](https://github.com/mycolab/docker-test/commit/5aca87f44fba8b28abfbaead4d5a65843a55c283))
+* **test:** test ([c9ab856](https://github.com/mycolab/docker-test/commit/c9ab8568440fd9d298b27c4de49f58a53988a6f8))
+* **test:** test ([a4fb216](https://github.com/mycolab/docker-test/commit/a4fb2164150645c09ddb9846243c1226275e4782))
+* **test:** test ([4ba4478](https://github.com/mycolab/docker-test/commit/4ba44787360e1c7bd798385996cd10103c84fcdc))
 
 
 
