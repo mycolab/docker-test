@@ -1,3 +1,12 @@
+## [0.1.3](https://github.com/mycolab/docker-test/compare/v0.1.2...v0.1.3) (2022-01-09)
+
+
+### Bug Fixes
+
+* **pipe:** dynamically generated image name ([65d105e](https://github.com/mycolab/docker-test/commit/65d105ec713ab55fc346689baf8befed3dd91b63))
+
+
+
 ## [0.1.2](https://github.com/mycolab/docker-test/compare/v0.1.1...v0.1.2) (2022-01-09)
 
 
