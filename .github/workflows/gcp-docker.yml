@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: ${{ github.event.repository.name }}
-      PROJECT_ID: micro-shoreline-333018
+      PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
+      PROJECT_ZONE: ${{ secrets.GOOGLE_ZONE }}
 
     steps:
     - name: Checkout
@@ -52,8 +53,7 @@ jobs:
       env:
         GIT_TAG: ${{ steps.changelog.outputs.version }}
       run: |-
-        docker tag $IMAGE_NAME:latest us-west2-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
-        docker tag $IMAGE_NAME:latest us-west2-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
-        docker push us-west2-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
-        docker push us-west2-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
-        rm $GOOGLE_APPLICATION_CREDENTIALS
+        docker tag $IMAGE_NAME:latest ${PROJECT_ZONE}-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
+        docker tag $IMAGE_NAME:latest ${PROJECT_ZONE}-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
+        docker push ${PROJECT_ZONE}-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
+        docker push ${PROJECT_ZONE}-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
