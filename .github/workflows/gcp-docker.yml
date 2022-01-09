@@ -25,13 +25,17 @@ jobs:
     - name: Build Docker Image
       run: docker build -t $IMAGE_NAME:latest .
 
+    - name: Get tag
+      id: get_tag
+      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+
     - name: Configure Docker Client
       run: |-
         gcloud auth configure-docker --quiet
         gcloud auth configure-docker us-west2-docker.pkg.dev
     - name: Push Docker Image to Artifact Registry
       env:
-        GIT_TAG: ${GITHUB_REF##*/}
+        GIT_TAG: ${{ steps.get_tag.outputs.VERSION }}
       run: |-
         docker tag $IMAGE_NAME:latest us-west2-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
         docker tag $IMAGE_NAME:latest us-west2-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
