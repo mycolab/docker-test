@@ -1,3 +1,12 @@
+## [0.1.5](https://github.com/mycolab/docker-test/compare/v0.1.4...v0.1.5) (2022-01-09)
+
+
+### Bug Fixes
+
+* **pipe:** rm secrets ([237492f](https://github.com/mycolab/docker-test/commit/237492f7fcedd9e6902c9ba9acdb6de5eb994efd))
+
+
+
 ## [0.1.4](https://github.com/mycolab/docker-test/compare/v0.1.3...v0.1.4) (2022-01-09)
 
 
