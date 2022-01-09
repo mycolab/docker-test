@@ -13,6 +13,7 @@ jobs:
 
       - name: Semantic Release
         run: |
+          npx semantic-release
           semantic-release publish -D commit_author="github-actions <action@github.com>"
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
