@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: ${{ github.event.repository.name }}
-      PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
-      PROJECT_ZONE: ${{ secrets.GOOGLE_ZONE }}
+      REGISTRY: ${{ secrets.GOOGLE_REGISTRY }}
+      REPOSITORY: ${{ secrets.GOOGLE_REGISTRY }}/${{ secrets.GOOGLE_PROJECT_ID }}/${{ secrets.DOCKER_REPO }}
 
     steps:
     - name: Checkout
@@ -47,13 +47,13 @@ jobs:
     - name: Configure Docker Client
       run: |-
         gcloud auth configure-docker --quiet
-        gcloud auth configure-docker ${PROJECT_ZONE}-docker.pkg.dev --quiet
+        gcloud auth configure-docker $REGISTRY --quiet
 
     - name: Push Docker Image to Artifact Registry
       env:
         GIT_TAG: ${{ steps.changelog.outputs.version }}
       run: |-
-        docker tag $IMAGE_NAME:latest ${PROJECT_ZONE}-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
-        docker tag $IMAGE_NAME:latest ${PROJECT_ZONE}-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
-        docker push ${PROJECT_ZONE}-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:latest
-        docker push ${PROJECT_ZONE}-docker.pkg.dev/$PROJECT_ID/images/$IMAGE_NAME:$GIT_TAG
+        docker tag $IMAGE_NAME:latest $REPOSITORY/$IMAGE_NAME:latest
+        docker tag $IMAGE_NAME:latest $REPOSITORY/$IMAGE_NAME:$GIT_TAG
+        docker push $REPOSITORY/$IMAGE_NAME:latest
+        docker push $REPOSITORY/$IMAGE_NAME:$GIT_TAG
